@@ -2,7 +2,8 @@ module UrlMethods
   require 'set'
   hash = Hash.new {|hash, key| hash[key] = Set.new }
 
-  def saveUrl(user_token, url)
+  def self.saveUrl(user_token, url)
+  	p hash
     return false if hash[user_token].include? url
 
     hash[user_token] << url
