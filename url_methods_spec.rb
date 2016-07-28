@@ -29,8 +29,7 @@ describe UrlMethods do
     end
 
     it "returns nil if no urls saved" do
-      result = @app.get_urls('user-12345678')
-      expect(result).to eq(nil)
+      @app.get_urls('user-12345678').should be_nil
     end
   end
 
