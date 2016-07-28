@@ -55,7 +55,7 @@ class UrlMethods
     root = Node.new('http://news.google.com')
     root.a = Node.new('http://news.yahoo.com')
     root.b = Node.new('http://www.cnn.com')
-    root.c = Node.new('http://www.cnn.com')
+    root.c = Node.new('http://www.twitter.com')
 
     root
   end
