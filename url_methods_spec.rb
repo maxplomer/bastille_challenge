@@ -8,14 +8,12 @@ describe UrlMethods do
     end
 
     it "returns true if added" do
-      result = @app.save_url('user-12345678', 'http://news.google.com')
-      expect(result).to eq(true)
+      @app.save_url('user-12345678', 'http://news.google.com').should be_true
     end
 
     it "returns false if already added" do
       @app.save_url('user-12345678', 'http://news.google.com')
-      result = @app.save_url('user-12345678', 'http://news.google.com')
-      expect(result).to eq(false)
+      @app.save_url('user-12345678', 'http://news.google.com').should be_false
     end
   end
 
@@ -44,13 +42,11 @@ describe UrlMethods do
 
     it "returns true if removed url" do
       @app.save_url('user-12345678', 'http://news.google.com')
-      result = @app.remove_url('user-12345678', 'http://news.google.com')
-      expect(result).to eq(true)
+      @app.remove_url('user-12345678', 'http://news.google.com').should be_true
     end
 
     it "returns false is url doesn't exist" do
-      result = @app.remove_url('user-12345678', 'http://news.google.com')
-      expect(result).to eq(false)
+      @app.remove_url('user-12345678', 'http://news.google.com').should be_false
     end
   end
 end
