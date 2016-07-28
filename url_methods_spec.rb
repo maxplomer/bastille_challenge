@@ -1,17 +1,20 @@
 require 'rspec'
-require 'url_methods'
+require './url_methods'
 
 describe "#save_url" do
 
   it "returns true if added" do
-  	app = UrlMethods.new
-  	result app.save_url('user-12345678', 'http://news.google.com')
-    expect(result).to be_truthy
+    app = UrlMethods.new
+    result = app.save_url('user-12345678', 'http://news.google.com')
+    expect(result).to eq(true)
   end
 
-  # it "returns false if already added" do
-  #   expect(factors(13)).to eq([1, 13])
-  # end
+  it "returns false if already added" do
+    app = UrlMethods.new
+    app.save_url('user-12345678', 'http://news.google.com')
+    result = app.save_url('user-12345678', 'http://news.google.com')
+    expect(result).to eq(false)
+  end
 
 end
 
