@@ -12,14 +12,23 @@ class UrlMethods
   end
 
   def get_urls(user_token)
-  	@db_hash[user_token] if @db_hash.key? user_token 
+    @db_hash[user_token] if @db_hash.key? user_token 
   end
 
   def remove_url(user_token, url)
-  	return false unless @db_hash.key? user_token
-  	return false unless @db_hash[user_token].include? url
+    return false unless @db_hash.key? user_token
+    return false unless @db_hash[user_token].include? url
     @db_hash[user_token].delete url
     true
+  end
+
+end
+
+require 'rspec'
+describe UrlMethods do
+  it 'returns false if already added' do
+    #deck.take(2)
+    expect(2).to eq(2)
   end
 
 end
