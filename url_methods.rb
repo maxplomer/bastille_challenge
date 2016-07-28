@@ -45,6 +45,7 @@ class UrlMethods
   end
 end
 
+# Manually test get_users_by_domain
 app = UrlMethods.new
 app.save_url('user1234', 'http://news.google.com')
 app.save_url('user12345', 'http://news.google.com')
