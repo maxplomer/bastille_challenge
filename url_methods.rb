@@ -5,7 +5,7 @@ class String
 end
 
 class Node
-  attr_accessor :a, :b :c
+  attr_accessor :a, :b, :c
   def initialize(data)
     @data = data
   end
