@@ -53,9 +53,17 @@ class UrlMethods
   def get_node(url)
     #assume already written so return dummy data
     root = Node.new('http://news.google.com')
-    root.a = Node.new('http://news.yahoo.com')
-    root.b = Node.new('http://www.cnn.com')
-    root.c = Node.new('http://www.twitter.com')
+      root.a = Node.new('http://news.yahoo.com')
+      root.b = Node.new('http://www.cnn.com')
+        root.b = Node.new('http://www.cnn.com')
+        root.c = Node.new('http://www.cnn.com')
+          root.c.b = Node.new('http://www.cnn.com')
+            root.c.b.b = Node.new('http://www.cnn.com')
+      root.c = Node.new('http://www.twitter.com')
+        root.c.c = Node.new('http://www.stackoverflow.com')
+          root.c.c.a = Node.new('http://www.reddit.com/r/pics')
+            root.c.c.a.b = Node.new('http://www.askjeeves.com/search')
+          root.c.c.b = Node.new('http://www.github.com')
 
     root
   end
