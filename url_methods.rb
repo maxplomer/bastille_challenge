@@ -74,8 +74,26 @@ class UrlMethods
   end
 
   def get_recommended_urls(user_token, url)
+    queue = [get_node(url)]
 
+    3.times do
+      new_queue = []
+
+      queue.each do |node|
+        new_queue << node.a if node.a
+        new_queue << node.b if node.b
+        new_queue << node.c if node.c
+      end
+
+      queue = new_queue
+    end
+
+    queue.map(&:get_url)
   end
 end
 
-#source for get_domain method: http://stackoverflow.com/questions/6674230/how-would-you-parse-a-url-in-ruby-to-get-the-main-domain
+# Test get_recommended_urls
+# app = UrlMethods.new
+# p app.get_recommended_urls('user1234', 'http://news.google.com')
+
+# Source for get_domain method: http://stackoverflow.com/questions/6674230/how-would-you-parse-a-url-in-ruby-to-get-the-main-domain
