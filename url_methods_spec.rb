@@ -25,8 +25,7 @@ describe UrlMethods do
     it "retrieves saved urls" do
       @app.save_url('user-12345678', 'http://news.google.com')
       @app.save_url('user-12345678', 'http://news.yahoo.com')
-      result = @app.get_urls('user-12345678')
-      expect(result).to eq(Set.new ["http://news.google.com", "http://news.yahoo.com"])
+      expect(@app.get_urls('user-12345678')).to eq(Set.new ["http://news.google.com", "http://news.yahoo.com"])
     end
 
     it "returns nil if no urls saved" do
