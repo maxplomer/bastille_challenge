@@ -12,11 +12,7 @@ class UrlMethods
   end
 
   def get_urls(user_token)
-  	if @db_hash.key?(user_token)
-      @db_hash[user_token]
-    else
-      nil
-    end
+  	@db_hash[user_token] if @db_hash.key?(user_token)
   end
 
 end
