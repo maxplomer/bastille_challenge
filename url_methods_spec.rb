@@ -47,4 +47,16 @@ describe UrlMethods do
       @app.remove_url('user-12345678', 'http://news.google.com').should be_false
     end
   end
+
+  describe "#get_users_by_domain" do
+    before do
+      @app = UrlMethods.new
+    end
+
+    it "returns returns users that match domain" do
+      @app.save_url('user1234', 'http://news.google.com')
+      @app.save_url('user12345', 'http://news.google.com')
+      @app.get_users_by_domain('google.com').should eq(Set.new ["user1234", "user12345"])
+    end
+  end
 end
