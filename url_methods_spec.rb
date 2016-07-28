@@ -2,11 +2,11 @@ require 'rspec'
 require './url_methods'
 
 describe UrlMethods do
+  before do
+    @app = UrlMethods.new
+  end
+  
   describe "#save_url" do
-    before do
-      @app = UrlMethods.new
-    end
-
     it "returns true if added" do
       @app.save_url('user-12345678', 'http://news.google.com').should be_true
     end
@@ -18,10 +18,6 @@ describe UrlMethods do
   end
 
   describe "#get_urls" do
-    before do
-      @app = UrlMethods.new
-    end
-
     it "retrieves saved urls" do
       @app.save_url('user-12345678', 'http://news.google.com')
       @app.save_url('user-12345678', 'http://news.yahoo.com')
@@ -34,10 +30,6 @@ describe UrlMethods do
   end
 
   describe "#remove_url" do
-    before do
-      @app = UrlMethods.new
-    end
-
     it "returns true if removed url" do
       @app.save_url('user-12345678', 'http://news.google.com')
       @app.remove_url('user-12345678', 'http://news.google.com').should be_true
@@ -49,10 +41,6 @@ describe UrlMethods do
   end
 
   describe "#get_users_by_domain" do
-    before do
-      @app = UrlMethods.new
-    end
-
     it "returns returns users that match domain" do
       @app.save_url('user1234', 'http://news.google.com')
       @app.save_url('user12345', 'http://news.google.com')
