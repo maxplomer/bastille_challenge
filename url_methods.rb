@@ -72,6 +72,10 @@ class UrlMethods
 
     root
   end
+
+  def get_recommended_urls(user_token, url)
+
+  end
 end
 
 #source for get_domain method: http://stackoverflow.com/questions/6674230/how-would-you-parse-a-url-in-ruby-to-get-the-main-domain
