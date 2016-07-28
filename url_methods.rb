@@ -1,8 +1,13 @@
 class UrlMethods
   require 'set'
+  require 'uri'
 
   def initialize  
     @db_hash = Hash.new {|hash, key| hash[key] = Set.new }
+  end
+
+  def self.get_domain(url)
+    URI(url).host.match(/[^\.]+\.\w+$/).to_s
   end
 
   def save_url(user_token, url)
@@ -22,3 +27,5 @@ class UrlMethods
     true
   end
 end
+
+#source for get_domain: http://stackoverflow.com/questions/6674230/how-would-you-parse-a-url-in-ruby-to-get-the-main-domain
