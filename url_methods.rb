@@ -33,12 +33,7 @@ class UrlMethods
     users = Set.new
 
     @db_hash.each do |user_token, url_set|
-      url_set.map(&:get_domain).each do |url_domain|
-        if url_domain == domain
-          users << user_token
-          break
-        end
-      end
+      users << user_token if url_set.map(&:get_domain).include? domain
     end
 
     users
