@@ -49,6 +49,16 @@ class UrlMethods
 
     users
   end
+
+  def get_node(url)
+    #assume already written so return dummy data
+    root = Node.new('http://news.google.com')
+    root.a = Node.new('http://news.yahoo.com')
+    root.b = Node.new('http://www.cnn.com')
+    root.c = Node.new('http://www.cnn.com')
+
+    root
+  end
 end
 
 #source for get_domain method: http://stackoverflow.com/questions/6674230/how-would-you-parse-a-url-in-ruby-to-get-the-main-domain
