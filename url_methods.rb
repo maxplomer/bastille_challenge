@@ -4,6 +4,17 @@ class String
   end
 end
 
+class Node
+  attr_accessor :a, :b :c
+  def initialize(data)
+    @data = data
+  end
+
+  def get_url
+    @data
+  end
+end
+
 class UrlMethods
   require 'set'
   require 'uri'
