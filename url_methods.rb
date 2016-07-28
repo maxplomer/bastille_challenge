@@ -1,13 +1,15 @@
+class String
+  def get_domain
+    URI(self).host.match(/[^\.]+\.\w+$/).to_s
+  end
+end
+
 class UrlMethods
   require 'set'
   require 'uri'
 
   def initialize  
     @db_hash = Hash.new {|hash, key| hash[key] = Set.new }
-  end
-
-  def self.get_domain(url)
-    URI(url).host.match(/[^\.]+\.\w+$/).to_s
   end
 
   def save_url(user_token, url)
@@ -26,6 +28,19 @@ class UrlMethods
     @db_hash[user_token].delete url
     true
   end
+
+  def get_users_by_domain(domain)
+    users = Set.new
+   
+    p 'http://www.google.com'.get_domain
+
+
+    users
+  end
 end
+
+app = UrlMethods.new
+app.get_users_by_domain('google.com')
+
 
 #source for get_domain: http://stackoverflow.com/questions/6674230/how-would-you-parse-a-url-in-ruby-to-get-the-main-domain
